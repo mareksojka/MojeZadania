@@ -1,0 +1,43 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Stocks Sold
+{% endblock %}
+
+{% block main %}
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Name</th>
+                <th>{{name}}</th>
+            </tr>
+            <tr>
+                <th>Symbol</th>
+                <th>{{ticker}}</th>
+            </tr>
+            <tr>
+                <th>Price</th>
+                <th>{{price}}</th>
+            </tr>
+            <tr>
+                <th>Number of shares</th>
+                <th>{{number}}</th>
+            </tr>
+            <tr>
+                <th>Total paid</th>
+                <th>{{amount}}</th>
+            </tr>
+            <tr>
+                <th>Funds Left in Account</th>
+                <th>{{funds}}</th>
+            </tr>
+            <tr>
+                <th>Total number of Shares held</th>
+                <th>{{number_held}}</th>
+            </tr>
+        </tbody>
+
+    </table>
+
+
+{% endblock %}

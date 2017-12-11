@@ -1,0 +1,57 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    User
+{% endblock %}
+
+{% block main %}
+    <h2>User {{user[0]['username']}}</h2>
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Cash in account</th>
+                <th>{{"%0.2f"|format(cash)}}</th>
+            </tr>
+            <tr>
+                <th>Stocks total value</th>
+                <th>{{"%0.2f"|format(stocks_total)}}</th>
+            </tr>
+            <tr>
+                <th>Account total value</th>
+                <th>{{"%0.2f"|format(account_total)}}</th>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table">
+        <thead>
+            <th>Symbol</th>
+            <th>Name</th>
+            <th>Shares</th>
+            <th>Price</th>
+            <th>TOTAL</th>
+        </thead>
+        <tbody>
+            {% for item in stocks %}
+            <tr>
+                <th>{{item["ticker"]}}</th>
+                <th>{{item["name"]}}</th>
+                <th>{{item["sum(number)"]}}</th>
+                <th>{{"%0.2f"|format(item["price"])}}</th>
+                <th>{{"%0.2f"|format(item["total"])}}</th>
+
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <a> Add Funds to account</a>
+    <form action="{{ url_for('index') }}" method="POST">
+        <fieldset>
+            <div class="form-group">
+                <input autocomplete="off" autofocus class="form-control" name="amount" placeholder="amount" type="text"/>
+            </div>
+            <div class="form-group">
+                <button class="btn btn-default" type="submit">Add Funds</button>
+            </div>
+        </fieldset>
+    </form>
+{% endblock %}

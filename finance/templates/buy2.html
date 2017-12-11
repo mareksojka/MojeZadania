@@ -1,0 +1,35 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Buy Stocks
+{% endblock %}
+
+{% block main %}
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Name</th>
+                <th>{{name}}</th>
+            </tr>
+            <tr>
+                <th>Symbol</th>
+                <th>{{ticker}}</th>
+            </tr>
+            <tr>
+                <th>Price</th>
+                <th>{{price}}</th>
+            </tr>
+        </tbody>
+
+    </table>
+    <form action="{{ url_for('buy2',name=name,ticker=ticker,price=price) }}" method="POST">
+        <fieldset>
+            <div class="form-group">
+                <input autocomplete="off" autofocus class="form-control" name="number" placeholder="number" type="text"/>
+            </div>
+            <div class="form-group">
+                <button class="btn btn-default" type="submit">Buy</button>
+            </div>
+        </fieldset>
+    </form>
+{% endblock %}

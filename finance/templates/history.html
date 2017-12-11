@@ -1,0 +1,33 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    History
+{% endblock %}
+
+{% block main %}
+    <h2>User {{user[0]['username']}}</h2>
+
+    <table class="table">
+        <thead>
+            <th>Symbol</th>
+            <th>Name</th>
+            <th>Side</th>
+            <th>Shares</th>
+            <th>Price</th>
+            <th>Date</th>
+        </thead>
+        <tbody>
+            {% for item in stocks %}
+            <tr>
+                <th>{{item["ticker"]}}</th>
+                <th>{{item["name"]}}</th>
+                <th>{{item["side"]}}</th>
+                <th>{{item["number"]}}</th>
+                <th>{{"%0.2f"|format(item["price"])}}</th>
+                <th>{{item["timestamp"]}}</th>
+
+            </tr>
+            {% endfor %}
+        </tbody>
+    </div>
+{% endblock %}
